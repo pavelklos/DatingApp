@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DatingApp-SPA';
+  now: number;
+
+  constructor() {
+    setInterval(() => {
+      this.now = Date.now();
+    }, 1);
+  }
 }
