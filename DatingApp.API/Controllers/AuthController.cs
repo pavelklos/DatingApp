@@ -54,6 +54,18 @@ namespace DatingApp.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto dto)
         {
+            // TEST : Section 5 - Error Handling
+            // throw new Exception("Computer says no!");
+            // try
+            // {
+            //     throw new Exception("Computer says no!");
+            // }
+            // catch (System.Exception)
+            // {
+            //     return StatusCode(500, "Computer really says no!");
+            // }
+            // TEST : Section 5 - Error Handling
+
             var userFromRepo = await _repo.Login(dto.Username.ToLower(), dto.Password);
 
             if (userFromRepo == null)

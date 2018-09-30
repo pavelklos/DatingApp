@@ -15,15 +15,16 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  login() {
-    // console.log(this.model);
-    const logInfo = ' [' + this.model.username + ':' + this.model.password + ']';
-    this.authService
-      .login(this.model)
-      .subscribe(
-        next => { console.log('Logged in successfully' + logInfo); },
-        error => { console.log('Failed to login' + logInfo); });
-  }
+  // login() {
+  //   // console.log(this.model);
+  //   const logInfo = ' [' + this.model.username + ':' + this.model.password + ']';
+  //   this.authService.login(this.model).subscribe(next => {
+  //     console.log('Logged in successfully' + logInfo);
+  //   }, error => {
+  //     console.log(error);
+  //      // error => { console.log('Failed to login' + logInfo); });
+  //   });
+  // }
 
   loggedIn() {
     const token = localStorage.getItem('token');
@@ -35,4 +36,12 @@ export class NavComponent implements OnInit {
     console.log('Logged out');
   }
 
+  login() {
+    this.authService.login(this.model).subscribe(next => {
+      console.log('Logged in successfully');
+    }, error => {
+      console.log(error);
+    });
+  }
 }
+

@@ -20,19 +20,20 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    // console.log(this.model);
-    const logInfo = ' [' + this.model.username + ':' + this.model.password + ']';
-    // console.log('Register' + logInfo);
-    this.authService
-      .register(this.model)
-      .subscribe(
-        () => { console.log('Registration successfull' + logInfo); },
-        error => { console.log('Error' + logInfo); });
+    // const logInfo = ' [' + this.model.username + ':' + this.model.password + ']';
+    // this.authService.register(this.model).subscribe(() => {
+    //   console.log('Registration successful' + logInfo);
+    // }, error => { console.log(error + logInfo); });
+
+    this.authService.register(this.model).subscribe(() => {
+      console.log('Registration successful');
+    }, error => {
+      console.log(error);
+    });
   }
 
   cancel() {
     this.cancelRegister.emit(false);
     console.log('Cancelled');
   }
-
 }
