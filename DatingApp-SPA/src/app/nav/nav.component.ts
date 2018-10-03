@@ -50,6 +50,7 @@ export class NavComponent implements OnInit {
   loggedIn() {
     // const token = localStorage.getItem('token');
     // return !!token; // true or false
+
     return this.authService.loggedIn();
   }
 
