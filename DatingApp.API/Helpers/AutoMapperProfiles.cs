@@ -9,6 +9,9 @@ namespace DatingApp.API.Helpers
     {
         public AutoMapperProfiles()
         {
+            // Unmapped members were found.
+            // Age, PhotoUrl
+
             CreateMap<User, UserForDetailedDto>()
                 // Age
                 .ForMember(dest => dest.Age, opt => {
@@ -31,8 +34,7 @@ namespace DatingApp.API.Helpers
             
             CreateMap<Photo, PhotosForDetailedDto>();
 
-            // Unmapped members were found.
-            // Age, PhotoUrl
+            CreateMap<UserForUpdateDto, User>();
         }
     }
 }
